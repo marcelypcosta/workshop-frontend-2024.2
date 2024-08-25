@@ -1,6 +1,10 @@
-<img src="https://sincere-hexagon-fd6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Ff7b44f65-d557-44f5-abe2-3dfdd475b530%2Fcf674cb6-f436-41fb-b4cd-d6a7022af1be%2Fvalorant-riot-games.jpg?table=block&id=84737b24-0d54-489f-816b-5ddb030a84fe&spaceId=f7b44f65-d557-44f5-abe2-3dfdd475b530&width=2000&userId=&cache=v2"/>
+<h1>DESAFIO VALORANT</h1>
 
-## Desafio Valorant
+<div style="display: flex;">
+  <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-desktop.png" alt="Imagem do Site" width="500"/>
+  <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-mobile.png" alt="Imagem do Site" width="200"/>
+  <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-tablet.png" alt="Imagem do Site" width="200"/>
+</div>
 
 ## Sobre
 Este projeto é um site dedicado ao jogo Valorant, desenvolvido como parte de um desafio da Fábrica de Software 2024.2 do Centro Universitário de João Pessoa - UNIPÊ. 
@@ -39,7 +43,7 @@ O site foi criado usando React com JavaScript e utiliza o Vite para build. O sit
 
 - Navegue até o diretório do projeto:
    ```bash
-  cd seu-repositorio
+  cd website-valorant
 
 - Navegue até o diretório do projeto:
    ```bash
