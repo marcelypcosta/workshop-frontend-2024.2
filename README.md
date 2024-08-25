@@ -36,7 +36,10 @@ O site foi criado usando React com JavaScript e utiliza o Vite para build. O sit
 - **Swiper**: ^11.1.10  
   Implementa carrosséis e sliders interativos para uma experiência de usuário dinâmica.
 
-## Instalação
+## Acesse o site aqui:
+ Site: [valorant.vercel.app](https://workshop-frontend-2024-2-one.vercel.app/)
+
+## Ou faça a instalação
 - Clone o repositório:
   ```bash
   git clone https://github.com/marcelypcosta/workshop-frontend-2024.2.git
@@ -53,3 +56,5 @@ O site foi criado usando React com JavaScript e utiliza o Vite para build. O sit
 - Para iniciar o projeto em modo de desenvolvimento, use:
    ```bash
   npm run dev
+
+   
