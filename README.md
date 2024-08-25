@@ -1,7 +1,7 @@
 <h1>DESAFIO VALORANT</h1>
 
 <div style="display: flex;">
-  <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-desktop.png" alt="Imagem do Site" width="500"/>
+  <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-desktop.png" alt="Imagem do Site" width="300"/>
   <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-mobile.png" alt="Imagem do Site" width="200"/>
   <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-tablet.png" alt="Imagem do Site" width="200"/>
 </div>
