@@ -1,6 +1,6 @@
 <h1>DESAFIO VALORANT</h1>
 
-<div style="display: flex;">
+<div>
   <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-desktop.png" alt="Imagem do Site" width="300"/>
   <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-mobile.png" alt="Imagem do Site" width="200"/>
   <img src="https://github.com/marcelypcosta/workshop-frontend-2024.2/blob/main/imagens-readme/website-tablet.png" alt="Imagem do Site" width="200"/>
@@ -38,6 +38,7 @@ O site foi criado usando React com JavaScript e utiliza o Vite para build. O sit
 
 ## Acesse o site aqui:
 
+Site: [valorant.vercel.app](https://workshop-frontend-2024-2-dun.vercel.app/)
 
 ## Ou faça a instalação
 - Clone o repositório:
