@@ -37,7 +37,7 @@ O site foi criado usando React com JavaScript e utiliza o Vite para build. O sit
   Implementa carrosséis e sliders interativos para uma experiência de usuário dinâmica.
 
 ## Acesse o site aqui:
- Site: [valorant.vercel.app](https://workshop-frontend-2024-2-one.vercel.app/)
+
 
 ## Ou faça a instalação
 - Clone o repositório:
