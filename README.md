@@ -38,7 +38,7 @@ O site foi criado usando React com JavaScript e utiliza o Vite para build. O sit
 
 ## Acesse o site:
 
-![valorant.vercel.app](https://workshop-frontend-2024-2-dun.vercel.app/)]
+[valorant.vercel.app]("https://workshop-frontend-2024-2-dun.vercel.app/")
 
 ## Ou faça a instalação na sua máquina:
 - Clone o repositório:
