@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 // Styles
 import { Container, Tittle } from "../../assets/css/pages";
-import "../../assets/css/styleSwiper.css"
+import "../../assets/css/styleSwiper.css";
 
 // Components
 import { Card } from "../../Components/Card";
@@ -69,9 +69,9 @@ export function Bundles() {
           {bundles.map((bundle) => (
             <SwiperSlide key={bundle.uuid}>
               <Card
-                imagem={bundle.displayIcon}
-                title={bundle.displayName}
                 type="bundle"
+                imageCard={bundle.displayIcon}
+                name={bundle.displayName}
               />
             </SwiperSlide>
           ))}

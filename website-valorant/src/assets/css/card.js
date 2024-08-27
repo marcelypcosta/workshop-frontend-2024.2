@@ -48,14 +48,13 @@ export const DataContainer = styled.div`
   }
 `;
 
-// Modal 
+// Modal do Agente
 
 export const StyleModal = styled(Modal)`
   display: flex;
   justify-content: center;
   align-items: center;
 `
-
 
 export const StyleBox = styled(Box)`
   width: 800px;
@@ -86,7 +85,7 @@ export const DadosAgent = styled.div`
   }
 `
 
-export const Name = styled.p`
+export const NameAgent = styled.p`
   font-size: 36px;
   font-weight: bolder;
   font-family: 'Inter', sans-serif;
@@ -98,6 +97,7 @@ export const Name = styled.p`
     font-weight: 400;
   }
 `
+
 export const AbilitiesAgent = styled.div`
   width: 100%;
   display: flex;
@@ -125,8 +125,7 @@ export const AbilitiesAgent = styled.div`
   }
 `
 
-
-export const Description = styled.p`
+export const DescriptionAgent = styled.p`
   line-height: 24px;
   text-align: justify;
 `

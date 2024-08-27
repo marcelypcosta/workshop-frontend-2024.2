@@ -72,9 +72,10 @@ export function Maps() {
           {maps.map((map) => (
             <SwiperSlide key={map.uuid}>
               <Card
-                imagem={map.displayIcon}
-                title={map.displayName}
-                type="map"
+                type="maps"
+                imageCard={map.splash}
+                name={map.displayName}
+                coordinates={map.coordinates}
               />
             </SwiperSlide>
           ))}

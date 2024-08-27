@@ -4,9 +4,9 @@ import {
   CardContainer,
   DadosAgent,
   DataContainer,
-  Description,
+  DescriptionAgent,
   Image,
-  Name,
+  NameAgent,
   StyleBox,
   StyleModal,
 } from "../../assets/css/card";
@@ -20,6 +20,7 @@ export function Card({
   role,
   description,
   abilities,
+  coordinates,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -31,52 +32,61 @@ export function Card({
       <CardContainer onClick={handleOpen}>
         <Image src={imageCard} />
         <DataContainer>
-          {type === "agent" ? (
+          {type === "agent" && (
             <div>
               <span>{role}</span>
               <p>{name}</p>
             </div>
-          ) : (
-            <p>{name}</p>
+          )}
+          {type === "bundle" && <p>{name}</p>}
+          {type === "maps" && (
+            <div>
+              <p>
+                {name} {coordinates}
+              </p>
+            </div>
           )}
         </DataContainer>
       </CardContainer>
-      {type === "agent" && <StyleModal open={open} onClose={handleClose}>
-        <StyleBox>
-          <DadosAgent>
-            <img src={imageModal} alt={`Imagem do agente ${name}`} />
-            <div>
-              <Name>
-                {name} <span>{role}</span>
-              </Name>
-              <Description>{description}</Description>
-            </div>
-          </DadosAgent>
-          <AbilitiesAgent>
-            {abilities.map((ability, index) => (
-              <div key={index}>
-                <img src={ability.icon} alt={"Ícone da habilidade"} />
-                <p>{ability.name}</p>
+      {type === "agent" && (
+        <StyleModal open={open} onClose={handleClose}>
+          <StyleBox>
+            <DadosAgent>
+              <img src={imageModal} alt={`Imagem do agente ${name}`} />
+              <div>
+                <NameAgent>
+                  {name} <span>{role}</span>
+                </NameAgent>
+                <DescriptionAgent>{description}</DescriptionAgent>
               </div>
-            ))}
-          </AbilitiesAgent>
-        </StyleBox>
-      </StyleModal>}
+            </DadosAgent>
+            <AbilitiesAgent>
+              {abilities.map((ability, index) => (
+                <div key={index}>
+                  <img src={ability.icon} alt={"Ícone da habilidade"} />
+                  <p>{ability.name}</p>
+                </div>
+              ))}
+            </AbilitiesAgent>
+          </StyleBox>
+        </StyleModal>
+      )}
     </>
   );
 }
 
 Card.propTypes = {
   imageCard: PropTypes.string.isRequired,
-  imageModal: PropTypes.string.isRequired,
+  imageModal: PropTypes.string,
   name: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  role: PropTypes.string,
+  description: PropTypes.string,
   abilities: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       icon: PropTypes.string.isRequired,
     })
-  ).isRequired,
-  type: PropTypes.oneOf(["agent", "bundle", "map"]).isRequired,
+  ),
+  coordinates: PropTypes.string,
+  type: PropTypes.oneOf(["agent", "bundle", "map"]),
 };
