@@ -1,21 +1,26 @@
 import PropTypes from "prop-types";
-import { CardContainer, DataContainer, Image } from "../../assets/css/card";
-import { Box, Modal, Typography } from "@mui/material";
+import {
+  AbilitiesAgent,
+  CardContainer,
+  DadosAgent,
+  DataContainer,
+  Description,
+  Image,
+  Name,
+  StyleBox,
+  StyleModal,
+} from "../../assets/css/card";
 import { useState } from "react";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-export function Card({ imagem, title, subtitle, type }) {
+export function Card({
+  type,
+  imageCard,
+  imageModal,
+  name,
+  role,
+  description,
+  abilities,
+}) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -23,35 +28,55 @@ export function Card({ imagem, title, subtitle, type }) {
 
   return (
     <>
-      <CardContainer type={type} onClick={handleOpen}>
-        <Image src={imagem} alt={`Imagem do ${type}`} />
+      <CardContainer onClick={handleOpen}>
+        <Image src={imageCard} />
         <DataContainer>
-          {subtitle && <span>{subtitle}</span>}
-          <p>{title}</p>
+          {type === "agent" ? (
+            <div>
+              <span>{role}</span>
+              <p>{name}</p>
+            </div>
+          ) : (
+            <p>{name}</p>
+          )}
         </DataContainer>
       </CardContainer>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {title}
-          </Typography>
-          {subtitle && (
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Função: {subtitle}
-            </Typography>
-          )}
-        </Box>
-      </Modal>
+      {type === "agent" && <StyleModal open={open} onClose={handleClose}>
+        <StyleBox>
+          <DadosAgent>
+            <img src={imageModal} alt={`Imagem do agente ${name}`} />
+            <div>
+              <Name>
+                {name} <span>{role}</span>
+              </Name>
+              <Description>{description}</Description>
+            </div>
+          </DadosAgent>
+          <AbilitiesAgent>
+            {abilities.map((ability, index) => (
+              <div key={index}>
+                <img src={ability.icon} alt={"Ícone da habilidade"} />
+                <p>{ability.name}</p>
+              </div>
+            ))}
+          </AbilitiesAgent>
+        </StyleBox>
+      </StyleModal>}
     </>
   );
 }
 
 Card.propTypes = {
-  imagem: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
+  imageCard: PropTypes.string.isRequired,
+  imageModal: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  abilities: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   type: PropTypes.oneOf(["agent", "bundle", "map"]).isRequired,
 };

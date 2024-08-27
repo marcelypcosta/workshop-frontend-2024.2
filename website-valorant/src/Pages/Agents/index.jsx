@@ -74,10 +74,16 @@ export function Agents() {
           {agents.map((agent) => (
             <SwiperSlide key={agent.uuid}>
               <Card
-                imagem={agent.fullPortrait}
-                title={agent.displayName}
-                subtitle={agent.role.displayName}
                 type="agent"
+                imageCard={agent.fullPortrait}
+                imageModal={agent.displayIcon}
+                name={agent.displayName}
+                role={agent.role.displayName}
+                description={agent.description}
+                abilities={agent.abilities.map(ability => ({
+                  name: ability.displayName,
+                  icon: ability.displayIcon,
+                }))}
               />
             </SwiperSlide>
           ))}

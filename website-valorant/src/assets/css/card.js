@@ -1,3 +1,4 @@
+import { Box, Modal } from "@mui/material";
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
@@ -46,3 +47,86 @@ export const DataContainer = styled.div`
     margin: 0; 
   }
 `;
+
+// Modal 
+
+export const StyleModal = styled(Modal)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+
+export const StyleBox = styled(Box)`
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #fff;
+  background-color: #22292E;
+  padding: 24px;
+  border-radius: 8px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+`
+
+export const DadosAgent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  img{
+    width: 200px;
+  }
+
+  div{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+`
+
+export const Name = styled.p`
+  font-size: 36px;
+  font-weight: bolder;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  text-transform: uppercase;
+
+  span{
+    font-size: 16px;
+    font-weight: 400;
+  }
+`
+export const AbilitiesAgent = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 8px;
+
+  div{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: #dd4754;
+  }
+
+  img{
+    width: 32px;
+  }
+
+  p{
+    font-size: 14px;
+  }
+`
+
+
+export const Description = styled.p`
+  line-height: 24px;
+  text-align: justify;
+`
