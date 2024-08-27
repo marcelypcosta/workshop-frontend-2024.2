@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 export default function Slider({ settings, children }) {
   return (
-    <Swiper modules={[Navigation]} {...settings}>
+    <Swiper modules={[Autoplay, Navigation]} {...settings}>
       {children}
     </Swiper>
   );
