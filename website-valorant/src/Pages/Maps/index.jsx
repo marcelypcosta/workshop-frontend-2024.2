@@ -1,7 +1,7 @@
-// Library
+// Librar
+import axios from "axios";
 import Slider from "../Slider";
 import { SwiperSlide } from "swiper/react";
-import axios from "axios";
 
 // Hooks
 import { useEffect, useState } from "react";
@@ -23,14 +23,11 @@ export function Maps() {
     try {
       const route = `${API_BASE_URL}/maps?language=pt-BR`;
       const response = await axios.get(route);
-
-      // Tratamento defido inconsistência nos dados da api
       const filteredMaps = response.data.data.filter((map) => map.displayIcon);
 
       setMaps(filteredMaps);
     } catch (error) {
-      console.error("Error fetching maps:", error);
-      setError("Failed to load maps.");
+      setError(`Failed to load maps. ${error}`);
     }
   };
 

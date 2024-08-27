@@ -1,14 +1,13 @@
 // Library
+import axios from "axios";
 import Slider from "../Slider";
 import { SwiperSlide } from "swiper/react";
-import axios from "axios";
 
 // Hooks
 import { useEffect, useState } from "react";
 
 // Styles
 import { Container, Input, NoResults, Tittle } from "../../assets/css/pages";
-import "../../assets/css/styleSwiper.css";
 
 // Components
 import { Card } from "../../Components/Card";
@@ -17,10 +16,11 @@ import { API_BASE_URL } from "../../api";
 
 export function Agents() {
   const [agents, setAgents] = useState([]);
-  const [filteredAgents, setFilteredAgents] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [noResultsMessage, setNoResultsMessage] = useState("");
   const [error, setError] = useState(null);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredAgents, setFilteredAgents] = useState([]);
+  const [noResultsMessage, setNoResultsMessage] = useState("");
 
   const loadAgents = async () => {
     try {
@@ -37,8 +37,7 @@ export function Agents() {
       setAgents(filtered);
       setFilteredAgents(filtered);
     } catch (error) {
-      console.error("Error fetching agents:", error);
-      setError("Failed to load agents.");
+      setError(`Failed to load maps. ${error}`);
     }
   };
 
@@ -47,10 +46,10 @@ export function Agents() {
   }, []);
 
   useEffect(() => {
-    const lowercasedSearchTerm = searchTerm.toLowerCase();
     const filtered = agents.filter((agent) =>
-      agent.displayName.toLowerCase().includes(lowercasedSearchTerm)
+      agent.displayName.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
     setFilteredAgents(filtered);
 
     if (filtered.length === 0 && searchTerm) {

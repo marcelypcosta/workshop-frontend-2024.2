@@ -1,7 +1,7 @@
 // Library
+import axios from "axios";
 import Slider from "../Slider";
 import { SwiperSlide } from "swiper/react";
-import axios from "axios";
 
 // Hooks
 import { useEffect, useState } from "react";
@@ -26,8 +26,7 @@ export function Bundles() {
 
       setBundles(response.data.data);
     } catch (error) {
-      console.error("Error fetching bundles:", error);
-      setError("Failed to load bundles.");
+      setError(`Failed to load maps. ${error}`);
     }
   };
 
