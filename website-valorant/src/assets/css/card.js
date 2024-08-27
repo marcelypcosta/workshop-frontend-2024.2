@@ -67,6 +67,11 @@ export const StyleBox = styled(Box)`
   border-radius: 8px;
   outline: none;
   font-family: 'Inter', sans-serif;
+
+  @media (max-width: 940px){
+    width: 300px;
+
+  }
 `
 
 export const DadosAgent = styled.div`
@@ -82,6 +87,20 @@ export const DadosAgent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+
+  @media (max-width: 940px){
+    display: flex;
+    flex-direction: column;
+
+    img{
+      width: 150px;
+    }
+
+    div{
+      display: flex;
+      gap: 12px;
+    }
   }
 `
 
@@ -122,6 +141,18 @@ export const AbilitiesAgent = styled.div`
 
   p{
     font-size: 14px;
+  }
+
+  @media (max-width: 940px){
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+
+    div{
+      width: 80%;
+      height: 32px;
+      flex-direction: row;
+      margin: 0 auto;
+    }
   }
 `
 
