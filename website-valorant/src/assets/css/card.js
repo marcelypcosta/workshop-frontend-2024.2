@@ -19,7 +19,7 @@ export const CardContainer = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 500px;
+  height: 400px;
   display: block; 
   object-fit: cover;
 `;

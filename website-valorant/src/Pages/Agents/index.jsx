@@ -7,7 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 // Styles
-import { Container, Tittle } from "../../assets/css/pages";
+import { Container, Input, NoResults, Tittle } from "../../assets/css/pages";
 import "../../assets/css/styleSwiper.css";
 
 // Components
@@ -17,6 +17,9 @@ import { API_BASE_URL } from "../../api";
 
 export function Agents() {
   const [agents, setAgents] = useState([]);
+  const [filteredAgents, setFilteredAgents] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [noResultsMessage, setNoResultsMessage] = useState("");
   const [error, setError] = useState(null);
 
   const loadAgents = async () => {
@@ -24,12 +27,15 @@ export function Agents() {
       const route = `${API_BASE_URL}/agents?language=pt-BR`;
       const response = await axios.get(route);
 
-      // Tratamento defido inconsistência nos dados da api
-      const filteredAgents = response.data.data.filter(
-        (agent) => agent.fullPortrait
+      const filtered = response.data.data.filter(
+        (agent) =>
+          agent.fullPortrait &&
+          agent.abilities &&
+          agent.abilities.every((ability) => ability.displayIcon)
       );
 
-      setAgents(filteredAgents);
+      setAgents(filtered);
+      setFilteredAgents(filtered);
     } catch (error) {
       console.error("Error fetching agents:", error);
       setError("Failed to load agents.");
@@ -39,6 +45,24 @@ export function Agents() {
   useEffect(() => {
     loadAgents();
   }, []);
+
+  useEffect(() => {
+    const lowercasedSearchTerm = searchTerm.toLowerCase();
+    const filtered = agents.filter((agent) =>
+      agent.displayName.toLowerCase().includes(lowercasedSearchTerm)
+    );
+    setFilteredAgents(filtered);
+
+    if (filtered.length === 0 && searchTerm) {
+      setNoResultsMessage("Agente não encontrado =)");
+    } else {
+      setNoResultsMessage("");
+    }
+  }, [searchTerm, agents]);
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   const AgentsSettings = {
     spaceBetween: 20,
@@ -67,11 +91,18 @@ export function Agents() {
   return (
     <Container backgroundColor="#DD4754">
       <Tittle color="#ECEDEE">- Agentes -</Tittle>
+      <Input
+        type="text"
+        placeholder="Buscar agentes..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+      />
+      {noResultsMessage && <NoResults>{noResultsMessage}</NoResults>}
       {error ? (
         alert(error)
       ) : (
         <Slider settings={AgentsSettings}>
-          {agents.map((agent) => (
+          {filteredAgents.map((agent) => (
             <SwiperSlide key={agent.uuid}>
               <Card
                 type="agent"
@@ -80,7 +111,7 @@ export function Agents() {
                 name={agent.displayName}
                 role={agent.role.displayName}
                 description={agent.description}
-                abilities={agent.abilities.map(ability => ({
+                abilities={agent.abilities.map((ability) => ({
                   name: ability.displayName,
                   icon: ability.displayIcon,
                 }))}
