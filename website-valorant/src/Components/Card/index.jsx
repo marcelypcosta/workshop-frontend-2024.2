@@ -9,6 +9,7 @@ import {
   NameAgent,
   StyleBox,
   StyleModal,
+  TittleAbilities,
 } from "../../assets/css/card";
 import { useState } from "react";
 
@@ -60,6 +61,7 @@ export function Card({
                 <DescriptionAgent>{description}</DescriptionAgent>
               </div>
             </DadosAgent>
+            <TittleAbilities>Habilidades</TittleAbilities>
             <AbilitiesAgent>
               {abilities.map((ability, index) => (
                 <div key={index}>

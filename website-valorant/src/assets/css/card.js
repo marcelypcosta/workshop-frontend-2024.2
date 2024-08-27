@@ -117,6 +117,14 @@ export const NameAgent = styled.p`
   }
 `
 
+export const TittleAbilities = styled.p`
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: uppercase;
+  text-align: center;
+`
+
 export const AbilitiesAgent = styled.div`
   width: 100%;
   display: flex;
