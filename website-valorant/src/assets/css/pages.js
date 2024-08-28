@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  height: 100vh;
   padding: 32px;
   background-color: ${props => props.backgroundColor || "#FFFFFF"};
 
